@@ -19,7 +19,7 @@ public class Sample {
         String pw = "";  //ログインパスワード
 
         //SQL文を定義する
-        String sql = "CREATE TABLE TEST)";
+        String sql = "CREATE TABLE TEST(name char(20) PRIMARY KEY ,tell char(20))";
 
         try {
             //JDBCドライバをロードする
@@ -31,17 +31,9 @@ public class Sample {
 
             //実行するSQL文とパラメータを指定する
             ps = conn.prepareStatement(sql);
-            ps.setInt(1, 4);
-            ps.setString(2, "上垣　光介");
-            ps.setString(3, "北海道札幌市");
-            ps.setString(4, "011-999-9999");
 
             //INSERT文を実行する
-            ResultSet i = ps.executeQuery();
-
-            //処理件数を表示する
-            System.out.println("結果：" + i);
-
+             ps.execute();
             //コミット
             conn.commit();
 
